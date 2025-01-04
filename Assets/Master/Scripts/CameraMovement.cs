@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    [SerializeField] private Transform tower;
     [SerializeField] private float offset;
 
+    private Transform tower => GameManager.Instance.TowerTransform;
     private Vector3 mousePosition => GameManager.Instance.mousePosition;
     private Vector3 direction;
 
