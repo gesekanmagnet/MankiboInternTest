@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Explode", menuName = "Bullet/Explode", order = 0)]
 public class Explode : Bullet
 {
-    [SerializeField] private ParticleSystem particle;
     [SerializeField] private float radius;
 
     public override void Shoot(IDestroyable destroyable, Vector2 point)
@@ -16,5 +15,9 @@ public class Explode : Bullet
             if (item.TryGetComponent<IDestroyable>(out var component))
                 component.Hit();
         }
+        
+        Transform explode = ObjectPool.Instance.GetExplode().transform;
+        explode.position = point;
+        explode.localScale = Vector2.one * radius;
     }
 }

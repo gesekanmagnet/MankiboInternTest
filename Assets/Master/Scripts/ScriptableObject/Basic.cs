@@ -8,5 +8,6 @@ public class Basic : Bullet
     public override void Shoot(IDestroyable destroyable, Vector2 point)
     {
         destroyable.Hit();
+        CameraShake.Instance.enabled = true;
     }
 }
